@@ -13,7 +13,7 @@ function App() {
         if (firstOperand === "0" && num !== "0") {
             const total = num !== "." ? num : "0."
             setFirstOperand(total)
-        } else if (!firstOperand.includes(".") || num !== ".") {
+        } else if (!firstOperand.includes(".") && num === "." || num !== "." && num !=="0") {
             setFirstOperand(firstOperand + num)
         }
     }
@@ -26,7 +26,7 @@ function App() {
       if (secondOperand === "0" && num !== "0") {
         const total = num !== "." ? num : "0."
         setSecondOperand(total)
-      }else if (!firstOperand.includes(".") || num !== ".")
+      }else if (!firstOperand.includes(".") && num === "."||  num !== "." && num !=="0")
           setSecondOperand(secondOperand + num)
     }
 
