@@ -80,7 +80,7 @@ function App() {
             </div>
 
             <div className="panel">
-                <p>[{operator}]</p>
+                <p>{operator}</p>
                 <div className="numbers">
                     <button onClick={() => setOperator("+")}>+</button>
                     <button onClick={() => setOperator("-")}>-</button>
