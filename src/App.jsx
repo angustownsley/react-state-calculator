@@ -7,6 +7,7 @@ function App() {
 const [firstOperand, setFirstOperand] = useState("0")
 const [secondOperand, setSecondOperand] = useState("0")
 const [operator, setOperator] = useState("+")
+const [result, setResult] = useState("0")
 
 function handleFirst(num) {
   
@@ -39,6 +40,12 @@ function clearSecond(){
   setSecondOperand('0')
 }
 
+function displayResult() {
+  const value = calculate(firstOperand, secondOperand, operator)
+
+  setResult(value)
+}
+
   return (
     <div className="calculator">
       <div className="panel">
@@ -69,7 +76,7 @@ function clearSecond(){
       </div>
 
       <div className="panel">
-        <p>0</p>
+        <p>{secondOperand}</p>
         <div className="numbers">
           <button onClick={() => handleSecond('1')}>1</button>
           <button onClick={() => handleSecond('2')}>2</button>
@@ -85,9 +92,9 @@ function clearSecond(){
         </div>
       </div>
       <div className="panel answer">
-        <p>0</p>
+        <p>{result}</p>
         <div>
-          <button>=</button>
+          <button onClick={displayResult}>=</button>
         </div>
       </div>
     </div>
