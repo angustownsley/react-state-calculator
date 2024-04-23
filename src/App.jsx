@@ -10,10 +10,13 @@ function App() {
     const [store, setStore] = useState("")
 
     function handleFirst(num) {
-        if (firstOperand === "0" && num !== "0") {
+      const isValidSeperator = !firstOperand.includes(".") && num === "."
+      const isNumber = !isNaN(num) 
+      
+      if (firstOperand === "0" && num !== "0") {
             const total = num !== "." ? num : "0."
             setFirstOperand(total)
-        } else if (!firstOperand.includes(".") && num === "." || num !== "." && num !=="0") {
+        } else if (isValidSeperator|| isNumber) {
             setFirstOperand(firstOperand + num)
         }
     }
@@ -23,10 +26,13 @@ function App() {
     }
 
     function handleSecond(num) {
+      const isValidSeperator = !firstOperand.includes(".") && num === "."
+      const isNumber = !isNaN(num)
+      
       if (secondOperand === "0" && num !== "0") {
         const total = num !== "." ? num : "0."
         setSecondOperand(total)
-      }else if (!firstOperand.includes(".") && num === "."||  num !== "." && num !=="0")
+      }else if (isValidSeperator || isNumber)
           setSecondOperand(secondOperand + num)
     }
 
